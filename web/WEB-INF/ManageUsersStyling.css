@@ -1,0 +1,32 @@
+body{
+    font-family:'Open Sans', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ffffff;
+    background-color:#14213d;
+}
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+}
+table {
+  border-collapse: collapse;
+  color:#000000;
+}
+
+td, th {
+  border: 1.5px solid #fca311;
+  text-align: left;
+  padding: 8px;
+}
+
+th{
+     background-color:#fca311;
+}
+
+tr:nth-child(odd){
+    background-color: #ffffff;
+}
+
+tr:nth-child(even) {
+  background-color: #e5e5e5;
+}
