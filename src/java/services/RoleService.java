@@ -7,6 +7,7 @@ package services;
 
 import dataaccess.RoleDB;
 import java.util.ArrayList;
+import java.util.List;
 import models.Role;
 
 /**
@@ -17,7 +18,9 @@ public class RoleService {
     //need one method: getAll()
     public ArrayList<Role> getAll(){
     RoleDB rdb = new RoleDB();
-    ArrayList<Role> roleList = rdb.getAll();
-    return roleList;
+    List<Role> roleList = rdb.getAll();
+    ArrayList<Role> returnList = new ArrayList<>();
+    returnList.addAll(roleList);
+    return returnList;
     }
 }

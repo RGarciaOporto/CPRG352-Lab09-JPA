@@ -7,7 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import models.Role;
 import models.User;
 import services.UserService;
 
@@ -89,7 +89,7 @@ public class UserServlet extends HttpServlet {
                         else{
                             status = false;
                          }
-                        tempUser = new User(email, status, firstName, lastName, password, role);
+                        tempUser = new User(email, status, firstName, lastName, password);
                         us.addUser(tempUser);
                         //load jsp
                         userList = us.getAll();
@@ -119,7 +119,7 @@ public class UserServlet extends HttpServlet {
                         editUser.setLastName(lastName);
                     roleValue = request.getParameter("editRole");
                     if(roleValue != null)
-                        editUser.setRole(Integer.parseInt(roleValue));
+                        editUser.setRole(new Role (Integer.parseInt(roleValue)));
                     statusValue = request.getParameter("editStatus");
                     //convert statusValue into a boolean based on the jsp input. Only do this if a value was selected.
                     if(statusValue != null) {
@@ -129,7 +129,7 @@ public class UserServlet extends HttpServlet {
                     else{
                         status = false;
                     }
-                     editUser.setStatus(status);
+                     editUser.setActive(status);
                     }
                     //update the sql file
                     us.updateUser(editUser);

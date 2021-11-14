@@ -7,6 +7,7 @@ package services;
 
 import dataaccess.UserDB;
 import java.util.ArrayList;
+import java.util.List;
 import models.User;
 
 /**
@@ -25,8 +26,10 @@ public class UserService {
     
     public ArrayList<User> getAll(){
     UserDB udb = new UserDB();
-    ArrayList<User> userList = udb.getAll();
-    return userList;
+    List<User> userList = udb.getAll();
+    ArrayList<User> returnList = new ArrayList<>();
+    returnList.addAll(userList);
+    return returnList;
     }
     
     public User getUser(String email){
