@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import models.Role;
 import models.User;
-import services.RoleService;
 import services.UserService;
 
 /**
@@ -92,7 +91,9 @@ public class UserServlet extends HttpServlet {
                             status = false;
                          }
                         tempUser = new User(email, status, firstName, lastName, password);
+                        tempUser.setRole(new Role(role));
                         us.addUser(tempUser);
+               
                         //load jsp
                         userList = us.getAll();
                         request.setAttribute("userList", userList);

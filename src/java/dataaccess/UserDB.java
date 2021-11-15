@@ -47,10 +47,7 @@ public class UserDB {
     try{
         trans.begin();
         em.persist(user);
-        em.merge(user);
         trans.commit();
-    }catch(Exception ex){
-        trans.rollback();
     }
     finally{
         em.close();
@@ -77,7 +74,7 @@ public class UserDB {
      EntityTransaction trans = em.getTransaction();
     try{
         trans.begin();
-        em.remove(em.merge(user));;
+        em.remove(em.merge(user));
         trans.commit();
     }catch(Exception ex){
         trans.rollback();
