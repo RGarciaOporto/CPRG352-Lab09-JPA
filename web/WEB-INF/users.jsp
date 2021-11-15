@@ -118,7 +118,6 @@
                     <tr>
                         <th>Email</th>
                         <th>Name</th>
-                        <th>Role</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
@@ -126,7 +125,7 @@
                         <tr>
                             <td><p>${users.email}</p></td>
                             <td><p>${users.firstName} ${users.lastName}</p></td>
-                            <td><p>${users.roleTitle()}</p></td>
+                            
                             <td><a href="
                            <c:url value='/users'>
                                <c:param name='editEmail' value='${users.email}' />

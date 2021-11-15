@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import models.Role;
 import models.User;
+import services.RoleService;
 import services.UserService;
 
 /**
@@ -23,6 +24,7 @@ public class UserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         UserService us = new UserService();
+        
         //check if we're editing/deleting a value from our manage users table
         String editParam = request.getParameter("editEmail");
         String deleteParam = request.getParameter("deleteEmail");
